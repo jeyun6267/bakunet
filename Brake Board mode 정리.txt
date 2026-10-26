@@ -1,0 +1,21 @@
+Brake Board mode 정리
+
+mode=0: 수동 모드
+- 목표 pos=69
+- 브레이크 완전 해제
+- PC brake bit는 무시됨
+
+mode=1: 자율주행 모드
+- PC brake=0이면 목표 pos=30
+   ->브레이크 직전 위치에서 대기
+- PC brake=1이면 목표 pos=18
+- 실제 브레이크 작동
+
+mode=3: 긴급정지
+- 목표 pos=18
+- PC brake bit와 상관없이 최우선으로 브레이크 작동
+- mode=3은 버튼 눌려 있는 동안에는 계속 작동
+- 버튼을 다시 눌름으로써 풀리면 긴급정지 해제
+
+우선순위:
+Emergency Stop > PC Brake > Auto Standby > Manual Ready
